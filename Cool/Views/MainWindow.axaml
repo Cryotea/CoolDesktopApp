@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Cool.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+        Width="600" Height="450"
+        x:Class="Cool.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Cool">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+
+    <Grid ColumnDefinitions="9*,1*">
+        <Grid Grid.Column="0" RowDefinitions="1*,9*">
+            <Grid Grid.Row="0" ColumnDefinitions="*, *, *, *" Background="Chocolate">
+                <Button Command="{Binding Button1}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0">1</Button>
+                <Button Command="{Binding Button2}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1">2</Button>
+                <Button Command="{Binding Button3}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="2">3</Button>
+                <Button Command="{Binding Button4}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="3">4</Button>
+            </Grid>
+            <Rectangle Grid.Row="1" Fill="Brown" IsVisible="{Binding isVisable1}"></Rectangle>
+            <Rectangle Grid.Row="1" Fill="Yellow" IsVisible="{Binding isVisable2}"></Rectangle>
+            <Rectangle Grid.Row="1" Fill="Green" IsVisible="{Binding isVisable3}"></Rectangle>
+            <Rectangle Grid.Row="1" Fill="Pink" IsVisible="{Binding isVisable4}"></Rectangle>
+        </Grid>
+        
+        <Grid Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto, *, Auto, Auto" Background="DimGray">
+            <Rectangle Grid.Row="0" Fill="Aquamarine" Width="40" Height="40" Margin="0,40,0,40"></Rectangle>
+            <Button Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,10">Temp</Button>
+            <Button Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,10">Temp</Button>
+            <Button Grid.Row="3" HorizontalAlignment="Center" Margin="0,0,0,10">Temp</Button>
+            <Button Grid.Row="5" HorizontalAlignment="Center" Margin="0,0,0,10">Temp</Button>
+            <Button Grid.Row="6" HorizontalAlignment="Center" Margin="0,0,0,10">Temp</Button>
+        </Grid>
+        
+    </Grid>
+</Window>
